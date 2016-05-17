@@ -47,15 +47,14 @@ class ControllerTest extends WebTestCase
         $response = $this->client->getResponse();
 
         $this->assertJsonResponse($response, 200);
-
         $content = $response->getContent();
         $decoded = json_decode($content, true);
 
         $this->assertInternalType('array', $decoded);
         $this->assertArrayHasKey('items', $decoded);
-        $this->assertArrayHasKey('total_count', $decoded);
+        $this->assertArrayHasKey('paginationData', $decoded);
         $items = $decoded['items'];
-        $this->assertLessThanOrEqual(count($items), $decoded['num_items_per_page']);
+        $this->assertLessThanOrEqual(count($items), $decoded['paginationData']['numItemsPerPage']);
     }
 
     protected function assertJsonResponse($response, $statusCode = 200, $checkValidJson = true, $contentType = 'application/json')
