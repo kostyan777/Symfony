@@ -7,6 +7,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ApiController extends FOSRestController
 {
+    /**
+     * @return json for all albums
+     */
     public function getAlbumsAction()
     {
         $albums = $this->getGalleryManager()->getAlbums();
@@ -16,6 +19,12 @@ class ApiController extends FOSRestController
         return $this->handleView($view);
     }
 
+    /**
+     * @param $albumId
+     * @param $page
+     *
+     * @return json for one album
+     */
     public function getImagesAction(Request $request)
     {
         $page = $request->query->get('page');
@@ -26,6 +35,11 @@ class ApiController extends FOSRestController
 
         return $this->handleView($view);
     }
+
+    /**
+     * Get service
+     * @return object
+     */
     public function getGalleryManager()
     {
         return $this->get('app.gallery');
