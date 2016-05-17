@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="{{ asset('node_modules/bootstrap/dist/css/bootstrap.min.css') }}">
+    <style>
+        .thin-gutter > [class*='col-'] {
+            padding-right: 1px;
+            padding-left: 1px;
+        }
+
+        .no-gutter > [class*='col-'] {
+            padding-right: 0px;
+            padding-left: 0px;
+        }
+
+        .thumb {
+            margin-bottom: 2px;
+        }
+
+        #album-list p {
+            padding: 0 10px;
+        }
+
+        #album-list {
+            background-color: darkgrey;
+        }
+
+        .album-thumb {
+            position: relative;
+            padding-left: 5px;
+        }
+
+        .album-thumb.current {
+        }
+
+        #image-list {
+            padding-right: 0px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container" id="main"></div>
+<script src="{{ asset('static/js/bundle.js') }}"></script>
+</body>
+</html>

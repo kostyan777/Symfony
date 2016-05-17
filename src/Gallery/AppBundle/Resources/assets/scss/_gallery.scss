@@ -1,0 +1,167 @@
+$primaryColor: #FF00FF;
+$gallery-imageBgColor: #999999;
+$gallery-imageBorderColor: darken($gallery-imageBgColor, 18%);
+$nameColor: white;
+$backgroundLight: #eeeeee;
+$backgroundDark: #cccccc;
+$blackgroundColor: #111111;
+$lighthouseRed: #ff6867;
+
+body {
+  text-align: center;
+  font-family: Verdana;
+  font-size: 1em;
+  padding: 0px;
+  margin: 0px;
+  background: $backgroundLight;
+  background: -webkit-radial-gradient(center, circle, $backgroundDark, $backgroundLight);
+  background: radial-gradient(circle at center, $backgroundDark, $backgroundLight);
+}
+
+#animals-gallery-images {
+  position: relative;
+  max-width: 660px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: block;
+  -webkit-transition: all 2.6s ease;
+  -moz-transition: all 2.6s ease;
+  -o-transition: all 2.6s ease;
+
+  #blackground {
+    position: fixed;
+    background-color: $blackgroundColor;
+    z-index: -1;
+    color: $lighthouseRed;
+    text-align: right;
+    font-size: 10em;
+    right: -10000px;
+    left: -10000px;
+    top: -100000px;
+    bottom: -10000px;
+    opacity: 0;
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;
+    -o-transition: all 0.6s ease;
+  }
+
+  .album-show {
+    font-size: 2em;
+  }
+
+  .center-wrapper {
+    min-height: 220px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .gallery-image {
+    background-image: url("/images/background.jpg");
+    display: inline-block;
+    width: 207px;
+    min-height: 170px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $gallery-imageBgColor;
+    margin: auto;
+    border-color: black;
+    border-radius: 5px;
+    border-style: solid;
+    margin-bottom: 5px;
+    filter: sepia(0);
+    -webkit-filter: sepia(0);
+    -moz-filter: sepia(0);
+    -o-filter: sepia(0);
+    -ms-filter: sepia(0);
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+
+    .crop {
+      float: left;
+      margin: 0;
+      overflow: hidden;
+      position: relative;
+      width: 202px;
+      height: 150px;
+    }
+
+    img {
+      position: absolute;
+      top: -10px;
+      left: 0;
+      width: 230px;
+      visibility: hidden;
+      float: left;
+      opacity: 0;
+      -webkit-transition: all 0.3s ease;
+    }
+
+    div.name {
+      font-family: arial;
+      font-size: 2em;
+      color: white;
+      position: relative;
+      text-align: center;
+      top: 4px;
+      opacity: 0;
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      text-shadow: rgb(204, 204, 204) 0px 1px 0px,
+      rgb(120, 120, 120) 0px 2px 0px,
+      rgb(80, 80, 80) 4px 3px 4px,
+      rgb(80, 80, 80) 5px 4px 5px,
+      rgba(50, 50, 50, 0.4) 0px 2px 0px;
+    }
+  }
+}
+
+#animals-gallery-images:hover .gallery-image {
+  filter: sepia(1);
+  -webkit-filter: sepia(1);
+  -moz-filter: sepia(1);
+  -o-filter: sepia(1);
+  -ms-filter: sepia(1);
+}
+
+#animals-gallery-images:hover .gallery-image:hover {
+  filter: sepia(0);
+  -webkit-filter: sepia(0);
+  -moz-filter: sepia(0);
+  -o-filter: sepia(0);
+  -ms-filter: sepia(0);
+  opacity: 1;
+  background-position: top;
+  border-color: $gallery-imageBorderColor;
+}
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus,
+.pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+  background-color: black !important;
+  border-color: black !important;
+}
+
+.pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > span:hover, .pagination > li > span:focus,
+.pagination > li > a, .pagination > li > span{
+  color: black !important;
+}
+.pagination .active a, .pagination .active a:hover, .pagination .active a:focus, .pagination .active a:active{
+  color: white !important;
+}
+#animals-gallery-images:hover .gallery-image:hover .name {
+  display: block;
+  opacity: 1;
+  color: $nameColor;
+}
+
+#animals-gallery-images:hover .gallery-image:hover img {
+  visibility: visible;
+  opacity: 1;
+}
+
+#animals-gallery-images:hover .gallery-image:hover ~ #blackground {
+  opacity: 1;
+}

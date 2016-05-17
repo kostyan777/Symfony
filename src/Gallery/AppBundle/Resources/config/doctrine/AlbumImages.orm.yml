@@ -1,0 +1,37 @@
+Gallery\AppBundle\Entity\AlbumImages:
+    type: entity
+    table: album_images
+    indexes:
+        album_images_album_id_idx:
+            columns:
+                - album_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+        image:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+    manyToOne:
+        album:
+            targetEntity: Albums
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                album_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,7 @@
+albums:
+    type: rest
+    resource: "Gallery\AppBundle\Controller\ApiController"
+images:
+    path:      images?albumId={albumId}
+    defaults:  { _controller: GalleryAppBundle:Api:getImages }
+
