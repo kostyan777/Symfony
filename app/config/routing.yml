@@ -1,0 +1,19 @@
+app:
+    resource: "@GalleryAppBundle/Controller/"
+    type:     annotation
+
+galleryApi:
+    type: rest
+    prefix: /api
+    resource: "@GalleryAppBundle/Resources/config/routing.yml"
+
+defaultRoute:
+    path: /
+    defaults: { _controller: GalleryAppBundle:App:index }
+
+indexRoute:
+    path: /{url}
+    defaults: { _controller: GalleryAppBundle:App:index }
+    requirements:
+        url: ".+"
+
