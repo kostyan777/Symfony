@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ApiController extends FOSRestController
 {
     /**
-     * @return json for all albums
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function getAlbumsAction()
     {
@@ -20,10 +20,9 @@ class ApiController extends FOSRestController
     }
 
     /**
-     * @param $albumId
-     * @param $page
+     * @param Request $request
      *
-     * @return json for one album
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function getImagesAction(Request $request)
     {
